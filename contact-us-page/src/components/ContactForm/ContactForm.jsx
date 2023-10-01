@@ -3,14 +3,18 @@ import styles from './ContactForm.module.css';
 import { MdMessage } from "react-icons/md";
 import { IoMdCall } from "react-icons/io";
 import { HiMail } from "react-icons/hi";
+import { useState } from 'react';
 
 const ContactForm = () => {
+    const[name,setName] = useState("");
+    const[email,setEmail] = useState("");
+    const[text,setText] = useState("");
 
     const onSubmit = (event) => {
         event.preventDefault();
-        console.log("Name : ",event.target[0].value);
-        console.log("Email : ",event.target[1].value);
-        console.log("Text : ",event.target[2].value);
+        setName(event.target[0].value);
+        setEmail(event.target[1].value);
+        setText(event.target[2].value);
 
     }
 
@@ -42,6 +46,7 @@ const ContactForm = () => {
             <div style={{display: "flex", justifyContent: "end"}}>
                 <Button text = "SUBMIT" />
             </div>
+            <div>{"Form Output = " + name + " " + email + " " + text}</div>
         </form>
 
     </div>
